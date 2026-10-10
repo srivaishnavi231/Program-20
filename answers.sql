@@ -1,12 +1,9 @@
 SET SERVEROUTPUT ON;
 
-DECLARE
-    marks NUMBER := 65;
+CREATE OR REPLACE TRIGGER trg_before_insert
+BEFORE INSERT ON Student
+FOR EACH ROW
 BEGIN
-    IF marks >= 50 THEN
-        DBMS_OUTPUT.PUT_LINE('Student has Passed');
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('Student has Failed');
-    END IF;
+    DBMS_OUTPUT.PUT_LINE('New student record is being inserted');
 END;
 /
